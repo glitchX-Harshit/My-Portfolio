@@ -63,22 +63,5 @@ tl.to([ribbonTop, ribbonBottom], {
         opacity: 0,
         duration: 0.3,
         ease: 'power2.in'
-    }, '-=0.3');
-
-// Hide scroll indicator
-ScrollTrigger.create({
-    trigger: '.mainRibbon',
-    start: 'top top-=50',
-    onEnter: () => {
-        gsap.to('.scroll-indicator', {
-            opacity: 0,
-            duration: 0.3
-        });
-    },
-    onLeaveBack: () => {
-        gsap.to('.scroll-indicator', {
-            opacity: 1,
-            duration: 0.3
-        });
-    }
-});
+    }, '-=0.3'
+);
