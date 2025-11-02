@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+.testimonial-section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 50px 20px;
+    position: relative;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #ededed9c;
+    font-weight: 900;
+    letter-spacing: 2;
+    text-transform: uppercase;
+}
+
+.testimonial-container {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    height: 600px;
+    margin: 0 auto;
+    /* border-radius: 20px; */
+    background: #000;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.testimonial-card {
+    position: absolute;
+    width: 280px;
+    height: 160px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px 20px 0 0;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-origin: center center;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-photo {
+    width: 100%;
+    height: 70%;
+    background: #f5f5f5;
+    border-radius: 20px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    width: 100%;
+    height: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    background: #ffffff;
+}
+
+.card-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.2;
+}
+
+.card-text {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .testimonial-card {
+        width: 160px;
+        height: 100px;
+    }
+}

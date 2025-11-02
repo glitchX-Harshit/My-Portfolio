@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+#webgl-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 4rem 6rem;
+    position: relative;
+    pointer-events: none;
+}
+
+.text-block {
+    max-width: 700px;
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    width: fit-content;
+}
+
+.text-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-block.from-right {
+    margin-left: auto;
+    text-align: right;
+}
+
+.text-block h1 {
+    font-size: 6rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.text-block h2 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.text-block p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #585858;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+    .section {
+        padding: 3rem 3rem;
+    }
+
+    .text-block h1 {
+        font-size: 4rem;
+    }
+
+    .text-block h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 2rem;
+    }
+
+    .text-block h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .text-block h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .text-block p {
+        font-size: 0.95rem;
+    }
+}
+
+.newpage {
+    position: relative;
+    z-index: 10;
+    background-color: #000000;
+    color: #ffffff;
+    height: 100vh;
+    width: 100%;
+}
