@@ -67,7 +67,7 @@ tl.to([ribbonTop, ribbonBottom], {
 
 // Hide scroll indicator
 ScrollTrigger.create({
-    trigger: 'mainRibbon',
+    trigger: '.mainRibbon',
     start: 'top top-=50',
     onEnter: () => {
         gsap.to('.scroll-indicator', {
