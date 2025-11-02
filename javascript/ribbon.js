@@ -63,5 +63,4 @@ tl.to([ribbonTop, ribbonBottom], {
         opacity: 0,
         duration: 0.3,
         ease: 'power2.in'
-    }, '-=0.3'
-);
+    }, '-=0.3');
