@@ -40,16 +40,6 @@ window.addEventListener("scroll", () => {
 console.log("working...")
 
 
-container.addEventListener('mouseleave', () => {
-    textWrapper.style.transform = 'rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1)';
-});
-
-container.addEventListener('mouseleave', () => {
-    // Reset to original position smoothly
-    textWrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1)';
-});
-
-
 
 // var mainPage = document.querySelector('#main')
 // var cursor = document.querySelector('#cursor')
