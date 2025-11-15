@@ -100,7 +100,7 @@ button {
     width: 12rem;
     transition: all 0.4s ease;
     z-index: 99;
-
+    cursor: pointer;
 }
 
 .navBtn span {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1000" height="240" viewBox="0 0 1000 240">
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    fill="#ffffff"
+    font-family="Poppins, 'Segoe UI', Roboto, Arial, sans-serif"
+    font-weight="700"
+    font-size="140"
+    letter-spacing="-4">
+    WHAT I DO
+  </text>
+</svg>
