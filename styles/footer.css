@@ -1,0 +1,185 @@
+.tilt-footer-module {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: auto;
+  background: #000000;
+  font-family: 'Arial', sans-serif;
+}
+
+/* .tilt-footer-module * {
+  box-sizing: border-box;
+} */
+
+/* Sticky section that slides and tilts */
+.tilt-footer-module .tilt-sticky-wrapper {
+  position: relative;
+  height: 15vh;
+  z-index: 2;
+}
+
+.tilt-footer-module .tilt-white-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  will-change: transform;
+  z-index: 2;
+}
+
+.tilt-footer-module .tilt-white-section .tilt-lets-talk {
+  position: absolute;
+  color: #000;
+  top: 4rem;
+  left: 4rem;
+  font-size: 4rem;
+  font-weight: 900;
+  opacity: 1;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.tilt-footer-module .tilt-line-text {
+  font-size: 17vw;
+  font-weight: 900;
+  color: #000;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  user-select: none;
+  margin-bottom: -33rem;
+}
+
+/* Footer section - positioned behind everything */
+.tilt-footer-module .tilt-footer-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #000000;
+  color: white;
+  /* padding: 4rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.tilt-footer-module .tilt-footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  margin-top: 23rem;
+}
+
+.tilt-footer-module .tilt-footer-left h2 {
+  font-size: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+}
+
+.tilt-footer-module .tilt-footer-left p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+}
+
+.tilt-footer-module .tilt-footer-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.tilt-footer-module .tilt-footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.tilt-footer-module .tilt-footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tilt-footer-module .tilt-footer-column li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.tilt-footer-module .tilt-footer-column a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.tilt-footer-module .tilt-footer-column a:hover {
+  opacity: 1;
+}
+
+.tilt-footer-module .tilt-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2rem;
+  margin-top: 4rem;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  flex-wrap: wrap;
+  gap: 35rem;
+}
+
+.tilt-footer-module .tilt-spacer {
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+.tilt-footer-module .tilt-email {
+  font-size: 3.7rem;
+  cursor: pointer;
+  font-weight: 800;
+  margin-top: -20px;
+  margin-left: 3rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.832);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tilt-footer-module .tilt-line-text {
+    font-size: 20vw;
+  }
+
+  .tilt-footer-module .tilt-footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .tilt-footer-module .tilt-footer-right {
+    grid-template-columns: 1fr;
+  }
+
+  .tilt-footer-module .tilt-footer-left h2 {
+    font-size: 2rem;
+  }
+
+  .tilt-footer-module .tilt-white-section .tilt-lets-talk {
+    font-size: 2.5rem;
+    left: 2rem;
+  }
+}

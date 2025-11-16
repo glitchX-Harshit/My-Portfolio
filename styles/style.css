@@ -166,8 +166,8 @@ button {
     display: inline-block;
     z-index: 1;
     /* Above the container */
-    background: url(../images/landpage1.png) center/100% auto no-repeat;
-    animation: background-pan 2s linear infinite alternate;
+    background: url(../images/landingpageHeroImg.png) center/55% auto no-repeat;
+    animation: background-pan 2.5s linear infinite alternate;
 }
 
 /* Shared text styles */
@@ -936,30 +936,8 @@ input::placeholder {
     letter-spacing: 0.1rem;
 }
 
-footer{
-    height: 15rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20rem;
-    position: relative;
-}
-
-footer p{
-    position: absolute;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 10px;
-    bottom: 8%;
-    left: 20px;
-    color: rgb(217, 217, 217);
-}
-footer h1{
-    position: absolute;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 7.5rem;
-    color: white;
-    letter-spacing: 0.1em;
-    right: 0;
-    bottom: 0;
+#footer {
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
 }
