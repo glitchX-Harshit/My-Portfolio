@@ -6,6 +6,11 @@
     --whitness: #e3e3db;
 }
 
+::selection {
+    background: white;
+    color: black;
+}
+
 * {
     margin: 0;
     padding: 0;

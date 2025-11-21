@@ -38,6 +38,7 @@
   width: 75vh;
   rotate: -90deg;
   z-index: 3;
+  cursor: none;
 }
 .tilt-footer-module .tilt-white-section .tilt-lets-talk {
   position: absolute;
