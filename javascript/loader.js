@@ -1,5 +1,5 @@
 // ADJUST THIS VALUE TO CHANGE TOTAL DURATION
-const LOADING_DURATION = 6.85; // seconds (change this to 3, 4, 5, etc.)
+const LOADING_DURATION = 7; // seconds (change this to 3, 4, 5, etc.)
 // ============================================
 
 const counterElement = document.getElementById('counter');
