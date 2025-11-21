@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <section class="intro">
+        <h1>Intro</h1>
+    </section> -->
+    <section class="awards">
+        <div class="awards-list"></div>
+    </section>
+    <!-- <section class="outro">
+        <h1>Outro</h1>
+    </section> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+    <script src="script.js" type="module"></script>
+
+    <script>
+        window.addEventListener("wheel", (e) => {
+            e.preventDefault();
+
+            window.parent.postMessage({
+                type: "wheel",
+                deltaY: e.deltaY
+            }, "*");
+        }, { passive: false });
+    </script>
+
+</body>
+
+</html>

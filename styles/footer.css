@@ -31,6 +31,14 @@
   z-index: 2;
 }
 
+.tilt-footer-module .tilt-white-section .animePlaybook {
+  position: absolute;
+  top: -37rem;
+  height: 100vw;
+  width: 75vh;
+  rotate: -90deg;
+  z-index: 3;
+}
 .tilt-footer-module .tilt-white-section .tilt-lets-talk {
   position: absolute;
   color: #000;

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Meie+Script&family=Momo+Trust+Display&family=Space+Grotesk:wght@300..700&display=swap');
+
+/* Parent container */
+#scroll-container {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Vertical sections */
+.vertical-section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.vertical-section .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/* Horizontal container */
+.horizontal-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.horizontal-wrapper {
+    display: flex;
+    height: 100vh;
+    width: fit-content;
+}
+
+.horizontal-section {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+}
+#hz-page3 h1 {
+    margin-left: 15rem;
+}
+
+#hz-page4 h1 {
+    margin-left: -30rem;
+}
+
+.concept {
+    font-family: "Meie Script", cursive;
+}
+
+/* Section colors */
+.horizontal-section:nth-child(1) {
+    background: rgb(0, 0, 0)
+}
+
+.horizontal-section:nth-child(2) {
+    background: rgb(0, 0, 0)
+}
+
+.horizontal-section:nth-child(3) {
+    background: black
+}
+
+.horizontal-section:nth-child(4) {
+    background: rgb(0, 0, 0)
+}
+
+#hz-page1 h1 {
+    position: absolute;
+    left: 3rem;
+    font-size: 6rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 900;
+    top: 20%;
+}
+
+
+
+.mainVideo {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.secondaryVideo {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    border-radius: 50%;
+}
+
+#video1 {
+    position: relative;
+    margin-right: 10rem;
+    top: -15rem;
+    left: 20rem;
+    z-index: 1;
+}
+
+#video2 {
+    position: relative;
+    margin-left: 10rem;
+    top: 15rem;
+    left: -21rem;
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP Image Hover Effect</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 40px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            aspect-ratio: 4/5;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: filter 0.3s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .image-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .image-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Cursor follower */
+        .cursor-follower {
+            position: fixed;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GSAP Image Hover Effect</h1>
+        
+        <div class="gallery">
+            <div class="image-wrapper" data-title="Architecture">
+                <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=600&h=750&fit=crop" alt="Architecture">
+                <div class="image-overlay">
+                    <div class="image-title">Modern Architecture</div>
+                    <div class="image-description">Contemporary design meets functionality</div>
+                </div>
+            </div>
+
+            <div class="image-wrapper" data-title="Nature">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=750&fit=crop" alt="Nature">
+                <div class="image-overlay">
+                    <div class="image-title">Mountain Vista</div>
+                    <div class="image-description">Breathtaking natural landscapes</div>
+                </div>
+            </div>
+
+            <div class="image-wrapper" data-title="Urban">
+                <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=750&fit=crop" alt="Urban">
+                <div class="image-overlay">
+                    <div class="image-title">City Lights</div>
+                    <div class="image-description">Urban exploration and discovery</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cursor-follower">VIEW</div>
+
+    <script>
+        // Cursor follower
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        gsap.ticker.add(() => {
+            gsap.set(cursorFollower, {
+                x: mouseX,
+                y: mouseY
+            });
+        });
+
+        // Image hover animations
+        const imageWrappers = document.querySelectorAll('.image-wrapper');
+
+        imageWrappers.forEach(wrapper => {
+            const img = wrapper.querySelector('img');
+            const overlay = wrapper.querySelector('.image-overlay');
+            let isHovering = false;
+
+            wrapper.addEventListener('mouseenter', (e) => {
+                isHovering = true;
+
+                // Animate cursor follower
+                gsap.to(cursorFollower, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+
+                // Animate image - scale and slight rotation
+                gsap.to(img, {
+                    scale: 1.1,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                });
+
+                // Animate overlay
+                gsap.to(overlay, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: 'power3.out'
+                });
+
+                // Add magnetic effect
+                wrapper.addEventListener('mousemove', onMouseMove);
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                isHovering = false;
+
+                // Reset cursor follower
+                gsap.to(cursorFollower, {
+                    opacity: 0,
+                    scale: 0,
+                    duration: 0.3,
+                    ease: 'power2.in'
+                });
+
+                // Reset image
+                gsap.to(img, {
+                    scale: 1,
+                    x: 0,
+                    y: 0,
+                    rotation: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                });
+
+                // Reset overlay
+                gsap.to(overlay, {
+                    y: '100%',
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: 'power3.in'
+                });
+
+                wrapper.removeEventListener('mousemove', onMouseMove);
+            });
+
+            function onMouseMove(e) {
+                if (!isHovering) return;
+
+                const rect = wrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const deltaX = (x - centerX) / centerX;
+                const deltaY = (y - centerY) / centerY;
+
+                // Magnetic movement effect
+                gsap.to(img, {
+                    x: deltaX * 20,
+                    y: deltaY * 20,
+                    rotation: deltaX * 3,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

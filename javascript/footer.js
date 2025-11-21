@@ -1,7 +1,7 @@
 function initTiltFooter() {
   // Check if GSAP is loaded
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-    console.error('GSAP or ScrollTrigger not loaded. Please include GSAP libraries before initializing tilt footer.');
+    console.error('GSAP or ScrollTrigger not loaded');
     return;
   }
 
@@ -23,7 +23,8 @@ function initTiltFooter() {
       start: '40% -7%',
       end: '240% bottom',
       scrub: 1,
-      // markers: true // Uncomment for debugging
+      invalidateOnRefresh: true,
+      // markers: true, // Keep this to debug
     },
     y: -400,
     x: -100,
@@ -32,14 +33,15 @@ function initTiltFooter() {
     ease: 'none'
   });
 
-  // Optional: Subtle parallax for footer content
+  // Subtle parallax for footer content
   if (footerContent) {
     gsap.from(footerContent, {
       scrollTrigger: {
         trigger: stickyWrapper,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 1
+        scrub: 1,
+        invalidateOnRefresh: true,
       },
       y: 100,
       opacity: 0.5,
@@ -47,12 +49,36 @@ function initTiltFooter() {
     });
   }
 
-  console.log('✅ Tilt footer initialized successfully');
+  console.log('✅ Footer initialized');
+
+  // Refresh after footer is created
+  ScrollTrigger.refresh();
 }
 
-// Auto-initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initTiltFooter);
-} else {
-  initTiltFooter();
-}
+// Wait for page load + additional delay
+window.addEventListener('load', () => {
+  setTimeout(initTiltFooter, 1000);
+});
+
+Shery.mouseFollower({
+  //Parameters are optional.
+  skew: true,
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  duration: 0.5,
+});
+
+function magnetEffect(targetElement) {
+  Shery.makeMagnet(targetElement /* Element to target.*/, {
+    //Parameters are optional.
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    duration: 1,
+  });
+};
+
+magnetEffect(".navBtn");
+magnetEffect(".tech-item");
+magnetEffect(".skill-content");
+magnetEffect(".heading-line");
+magnetEffect(".scroll-down-btn");
+magnetEffect("#proposal-button");
+magnetEffect(".sendMessage-btn")

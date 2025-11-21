@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Playfair Display', Georgia, serif;
+            overflow-x: hidden;
+        }
+
+        .about-section {
+            min-height: 400vh;
+            position: relative;
+        }
+
+        /* Sticky container */
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Three heading sections */
+        .heading-wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .heading-line {
+            position: absolute;
+            font-size: 12vw;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+
+        .heading-line.top {
+            top: 15%;
+            opacity: 1;
+        }
+
+        .heading-line.middle {
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+        .heading-line.bottom {
+            bottom: 15%;
+            opacity: 1;
+        }
+
+        /* Content section */
+        .content-wrapper {
+            padding: 5rem 5% 10rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+        }
+
+        .section-label {
+            font-size: 0.875rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .description {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            line-height: 1.8;
+            max-width: 900px;
+            margin-bottom: 4rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 300;
+            color: #ccc;
+        }
+
+        .word {
+            display: inline;
+            color: #444;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .skill-card {
+            padding: 2.5rem 2rem;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 0;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .skill-card:hover {
+            border-color: #fff;
+        }
+
+        .skill-content {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .skill-card:hover .skill-content {
+            color: #000;
+        }
+
+        .skill-number {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .skill-card:hover .skill-number {
+            color: #000;
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .skill-card:hover .skill-desc {
+            color: #333;
+        }
+
+        /* Tech Stack */
+        .tech-stack-title {
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            color: #666;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tech-item {
+            padding: 1rem 2rem;
+            border: 1px solid #333;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .tech-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: left 0.3s ease;
+            z-index: 0;
+        }
+
+        .tech-item:hover::before {
+            left: 0;
+        }
+
+        .tech-item span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: #fff;
+        }
+
+        .tech-item:hover span {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .heading-line {
+                font-size: 15vw;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="about-section">
+        <!-- Sticky heading animation -->
+        <div class="sticky-wrapper">
+            <div class="heading-wrapper">
+                <div class="heading-line top">WHO I AM</div>
+                <div class="heading-line middle">WHO I AM</div>
+                <div class="heading-line bottom">WHO I AM</div>
+            </div>
+        </div>
+
+        <!-- Content section -->
+        <div class="content-wrapper">
+            <p class="description">
+                I'm a frontend developer and UI/UX designer passionate about creating immersive digital experiences. I specialize in combining creative design with cutting-edge web technologies to build interactive, performant, and visually stunning websites that push the boundaries of what's possible on the web.
+            </p>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-content">
+                        <div class="skill-number">01</div>
+                        <h3 class="skill-title">Frontend Development</h3>
+                        <p class="skill-desc">Building responsive, performant web experiences with modern technologies</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-content">
+                        <div class="skill-number">02</div>
+                        <h3 class="skill-title">3D Graphics & WebGL</h3>
+                        <p class="skill-desc">Creating immersive Three.js experiences with custom shaders</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-content">
+                        <div class="skill-number">03</div>
+                        <h3 class="skill-title">Animation</h3>
+                        <p class="skill-desc">Crafting smooth GSAP animations and interactive experiences</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-content">
+                        <div class="skill-number">04</div>
+                        <h3 class="skill-title">UI/UX Design</h3>
+                        <p class="skill-desc">Designing minimal, user-centric interfaces with attention to detail</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="tech-stack-title">Tech Stack</div>
+                <div class="tech-stack">
+                    <div class="tech-item"><span>HTML5</span></div>
+                    <div class="tech-item"><span>CSS3</span></div>
+                    <div class="tech-item"><span>JavaScript</span></div>
+                    <div class="tech-item"><span>React</span></div>
+                    <div class="tech-item"><span>Three.js</span></div>
+                    <div class="tech-item"><span>WebGL</span></div>
+                    <div class="tech-item"><span>GSAP</span></div>
+                    <div class="tech-item"><span>GLSL</span></div>
+                    <div class="tech-item"><span>Tailwind CSS</span></div>
+                    <div class="tech-item"><span>Framer Motion</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Split description into words
+        function splitIntoWords(element) {
+            const text = element.textContent;
+            const words = text.split(' ');
+            element.innerHTML = words.map(word => 
+                `<span class="word">${word} </span>`
+            ).join('');
+        }
+
+        const description = document.querySelector('.description');
+        splitIntoWords(description);
+
+        // Main heading animation timeline
+        const headingTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.about-section',
+                start: 'top top',
+                end: '70% top',
+                scrub: 1,
+                pin: '.sticky-wrapper',
+            }
+        });
+
+        // Phase 1: Merge all three lines to center (0-50%)
+        headingTl
+            .to('.heading-line.top', {
+                top: '50%',
+                y: '-50%',
+                duration: 2,
+                ease: 'power2.inOut'
+            }, 0)
+            .to('.heading-line.bottom', {
+                bottom: 'auto',
+                top: '50%',
+                y: '-50%',
+                duration: 2,
+                ease: 'power2.inOut'
+            }, 0)
+            
+            // Fade out top and bottom smoothly
+            .to('.heading-line.top, .heading-line.bottom', {
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.inOut'
+            }, 1)
+            
+            // Phase 2: Make middle text smaller
+            .to('.heading-line.middle', {
+                fontSize: '4vw',
+                duration: 2,
+                ease: 'power2.inOut'
+            }, 2)
+            
+        // Content fade in
+        gsap.to('.content-wrapper', {
+            opacity: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.content-wrapper',
+                start: 'top 80%',
+            }
+        });
+
+        // Description words color change
+        const words = document.querySelectorAll('.description .word');
+        words.forEach((word) => {
+            gsap.to(word, {
+                color: '#ffffff',
+                scrollTrigger: {
+                    trigger: word,
+                    start: 'top 80%',
+                    end: 'top 50%',
+                    scrub: 1,
+                }
+            });
+        });
+
+        // Skill cards animation
+        gsap.to('.skill-card', {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.skills-grid',
+                start: 'top 80%',
+            }
+        });
+
+        // Tech stack animation
+        gsap.to('.tech-item', {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.05,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: '.tech-stack',
+                start: 'top 80%',
+            }
+        });
+    </script>
+</body>
+</html>

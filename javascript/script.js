@@ -1,6 +1,10 @@
 
 // lenis smooth scrolling effect loop
-const lenis = new Lenis();
+const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+    });
 
 function raf(time) {
     lenis.raf(time)
@@ -40,47 +44,6 @@ window.addEventListener("scroll", () => {
 console.log("working...")
 
 
-
-// var mainPage = document.querySelector('#main')
-// var cursor = document.querySelector('#cursor')
-
-// mainPage.addEventListener("mousemove", function (dets) {
-//     gsap.to(cursor, {
-//         x: dets.x,
-//         y: dets.y
-//     })
-// })
-
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.scroll-to-home, .scroll-to-aboutme, .scroll-to-services');
-
-    buttons.forEach(function (button) {
-        button.addEventListener('click', function (event) {
-            event.preventDefault(); // ❌ Prevent default anchor jump
-
-            let targetDiv;
-
-            if (button.classList.contains('scroll-to-home')) {
-                targetDiv = document.querySelector('#home');
-
-            } else if (button.classList.contains('scroll-to-aboutme')) {
-                targetDiv = document.querySelector('#aboutme');
-
-            } else if (button.classList.contains('scroll-to-services')) {
-                targetDiv = document.querySelector('#services');
-            }
-
-            if (targetDiv) {
-                targetDiv.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Select all elements that trigger the hover effect
     const hoverTargets = document.querySelectorAll('.hover-target');
@@ -118,81 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // animation part 
 
-function miniAboutAnimation(val) {
-    var tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: val,
-            start: "50% 99%",
-            end: "50% 20%",
-            scrub: true,
-            // markers: true,
-            stagger: 1
-        }
-    })
-
-    tl.from(val, {
-        y: 100,
-        opacity: 0,
-        duration: 2.5,
-        delay: 0.3,
-        stagger: 1,
-    })
-
-    tl.to(".miniAbout", {
-        y: -100,
-        opacity: 0,
-        duration: 2.5,
-        delay: 0.8,
-        stagger: 1,
-    })
-}
-miniAboutAnimation(".miniAbout")
-miniAboutAnimation(".about-me-paragraph")
-
-
-function aboutMe() {
-    var tl2 = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".aboutme_heading",
-            start: "50% 100%",
-            end: "50% 5%",
-            scrub: true
-        }
-    })
-
-    tl2.from(".aboutme_heading", {
-        x: -150,
-        scale: 1.1,
-        opacity: 0,
-        duration: 2
-    })
-
-    const splitText = document.querySelector('.btn-split .text-wrapper');
-    const text = splitText.dataset.text;
-    splitText.innerHTML = '';
-
-    text.split('').forEach(char => {
-        const span = document.createElement('span');
-        span.className = 'char';
-        span.textContent = char === ' ' ? '\u00A0' : char;
-        splitText.appendChild(span);
-    });
-
-    gsap.to(".btn-split .char", {
-        scrollTrigger: {
-            trigger: ".btn-split",
-            start: "top 93%",
-            end: "top 79%",
-            scrub: 1,
-        },
-        opacity: 1,
-        y: 0,
-        rotation: 0,
-        stagger: 0.05,
-        ease: "back.out(2)"
-    });
-}
-aboutMe();
+gsap.to("#navbar ul li", {
+    opacity:0
+})
+gsap.from("#navbar ul li", {
+    opacity:1,
+    stagger: 1.3
+})
 
 // liquid effect
 const text = document.querySelector("text");
@@ -219,6 +114,7 @@ function slider() {
             start: "50% 95%",
             end: "50% 65%",
             scrub: true,
+            invalidateOnRefresh: true,
             // markers: true
         }
     })
@@ -234,4 +130,11 @@ function slider() {
         ease: "expoScale(0.5,7,none)"
     })
 }
-slider()
+
+// Wait for page load + delay
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        slider();
+        console.log('✅ Slider animation initialized');
+    }, 1000);
+});

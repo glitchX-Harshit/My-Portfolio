@@ -10,13 +10,17 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" /> <!-- Recommended -->
+    <link rel="stylesheet" href="styles/horizontalScroll.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/loader.css">
     <link rel="stylesheet" href="styles/buttonAnimation.css">
     <link rel="stylesheet" href="styles/testimonial.css">
     <link rel="stylesheet" href="styles/ribbon.css">
     <link rel="stylesheet" href="styles/slider.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
 </head>
@@ -81,88 +85,125 @@
             </div>
         </div>
 
-
         <div class="secondText">MY WORK ISN'T JUST ABOUT CREATING - IT'S ABOUT MAKING A DIFFERENCE</div>
 
-        <div class="miniAbout">
-            <!-- temporary design - In future i have to shift every text into div -->
 
-            <span class="work-experience">
-                <h2 style="color: white;">03+<br>YEARS</h2>
-            </span>
-            <span class="project">
-                <h2 style="color: white;">10+ SUCESSFUL<br>PROJECTS</h2>
-            </span>
-            <span class="clients">
-                <h2 style="color: white;">05+ <br> SATISFIED CUSTOMER</h2>
-            </span>
-        </div>
-        <!-- seperator -->
-        <!-- <div class="separator separator-1"></div> -->
-
-        <div class="aboutme-section" id="aboutme">
-            <div class="aboutme_heading">
-                <div class="about-me-text-wrapper">
-                    <span class="about-me-layer layer-front ">ABOUT me</span>
-                    <span class="about-me-layer layer-back">ABOUT me </span>
+        <section class="about-section">
+            <!-- Sticky heading animation -->
+            <div class="sticky-wrapper">
+                <div class="heading-wrapper">
+                    <div class="heading-line top">WHO I AM</div>
+                    <div class="heading-line middle">WHO I AM</div>
+                    <div class="heading-line bottom">WHO I AM</div>
                 </div>
             </div>
-            <div class="content-and-image-row">
-                <div class="about-me-paragraph">
-                    <p id="p1">
-                        Hello! Im Harshit, a passionate web and graphic designer with a love for clean, functional
-                        design
-                        and
-                        strong visual storytelling. With 15+ years of experience in the creative industry, I specialize
-                        in
-                        crafting unique brand identities, intuitive websites, and eye-catching digital content that not
-                        only
-                        looks great but also performs.
-                    </p>
-                    <p id="p2">
-                        Whether you're a startup in need of a full visual identity, or an established brand looking to
-                        refresh
-                        your online presence, I bring a mix of creativity, strategy, and technical know-how to every
-                        project.
-                    </p>
-                    <p id="p3">
-                        I believe that great design is about more than just aesthetics—its about creating experiences
-                        that
-                        connect, communicate, and convert.
-                    </p>
+
+            <!-- Content section -->
+            <div class="content-wrapper">
+                <p class="description">
+                    I’m Harshit, a frontend developer and UI/UX designer from IIT Patna who builds digital experiences
+                    with precision, power, and personality. I fuse creative design with cutting-edge web tech to craft
+                    interactive, high-performance websites that stand out instantly. With 4+ internal hackathon wins and
+                    a reputation for clean UI and smooth motion, I deliver work that feels sharp, modern, and
+                    unmistakably mine.
+                </p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-content">
+                            <div class="skill-number">01</div>
+                            <h3 class="skill-title">Frontend Development</h3>
+                            <p class="skill-desc">Building responsive, performant web experiences with modern
+                                technologies</p>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-content">
+                            <div class="skill-number">02</div>
+                            <h3 class="skill-title">3D Graphics & WebGL</h3>
+                            <p class="skill-desc">Creating immersive Three.js experiences with custom shaders</p>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-content">
+                            <div class="skill-number">03</div>
+                            <h3 class="skill-title">Animation</h3>
+                            <p class="skill-desc">Crafting smooth GSAP animations and interactive experiences</p>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-content">
+                            <div class="skill-number">04</div>
+                            <h3 class="skill-title">UI/UX Design</h3>
+                            <p class="skill-desc">Designing minimal, user-centric interfaces with attention to detail
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="image-wrapper">
-                    <img id="aboutme-img" src="images/sliderbg.png" alt="about me portrait" class="about-me-portrait">
-                    <div class="social-icons">
-                        <!-- pending -->
+
+                <div>
+                    <div class="tech-stack-title">Tech Stack</div>
+                    <div class="tech-stack">
+                        <div class="tech-item"><span>HTML5</span></div>
+                        <div class="tech-item"><span>CSS3</span></div>
+                        <div class="tech-item"><span>JavaScript</span></div>
+                        <div class="tech-item"><span>TypeScript</span></div>
+                        <div class="tech-item"><span>React</span></div>
+                        <div class="tech-item"><span>Next.Js</span></div>
+                        <div class="tech-item"><span>Three.js</span></div>
+                        <div class="tech-item"><span>WebGL</span></div>
+                        <div class="tech-item"><span>GSAP</span></div>
+                        <div class="tech-item"><span>GLSL</span></div>
+                        <div class="tech-item"><span>Tailwind CSS</span></div>
+                        <div class="tech-item"><span>Framer Motion</span></div>
+                        <div class="tech-item"><span>Python</span></div>
+                        <div class="tech-item"><span>Locomotive.Js</span></div>
                     </div>
                 </div>
             </div>
-            <button class="btn-split">
-                <a href="finalAbout/index.html"><span class="text-wrapper" data-text="my storyline">my
-                        storyline</span></a>
-            </button>
-        </div>
+        </section>
 
-        <!-- seperator -->
 
-        <div class="spacer"></div>
+        <!-- AWARDS SECTION -->
+        <section class="my-animation-section">
+            <iframe src="iceSlide/ice.html" class="isolation" frameborder="0"></iframe>
+        </section>
 
-        <div class="myService" id="services">
-            <div class="myservices-text-wrapper">
-                <span class="myservices-layer layer-front ">my services</span>
-                <span class="myservices-layer layer-back">my services</span>
-            </div>
-            <div>
-                <div class="seeproject-scroll-down" style="color: white;"><a href="#">SEE PROJECTS &nbsp; &nbsp; &darr;
-                    </a>
+
+        <!-- 🔥 NEW WRAPPER - WRAP EVERYTHING FROM HERE -->
+        <div id="scroll-container">
+
+            <!-- HORIZONTAL SCROLL SECTION -->
+            <div class="horizontal-container">
+                <div class="horizontal-wrapper">
+                    <!-- page 1 -->
+
+                    <!-- <div class="horizontal-section" id="hz-page1">
+                        <h1>ACHIEVMENTS</h1>
+                    </div> -->
+
+                    <!-- page 2 -->
+
+                    <!-- <div class="horizontal-section">
+                        <video class="secondaryVideo" id="video1" autoplay muted loop src="images/aboo.mp4"></video>
+                        <video class="mainVideo " autoplay muted loop src="images/aboo.mp4"></video>
+                        <video class="secondaryVideo" id="video2" autoplay muted loop src="images/aboo.mp4"></video>
+                    </div> -->
+
+                    <!-- page 3 -->
+                    <div class="horizontal-section" id="hz-page3">
+                        <h1>YOUR <span class="concept"> concept.</span></h1>
+                    </div>
+
+                    <!-- page 4 -->
+                    <div class="horizontal-section" id="hz-page4">
+                        <h1>MY <span class="concept">creation.</span></h1>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="separator separator-2"></div>
+        <!-- 🔥 END OF WRAPPER -->
 
-        <!-- spacer -->
-        <div class="spacer"></div>
 
         <div class="skills">
 
@@ -298,6 +339,10 @@
 
                 <div class="tilt-sticky-wrapper">
                     <div class="tilt-white-section" id="tiltWhiteSection">
+
+                        <video class="animePlaybook" style="object-fit: cover; flex-shrink: 0;" muted loop autoplay
+                            playinline
+                            src="images/JUJUTSU KAISEN, GOJO - THE STRONGEST SORCERER ✨After the HUGE first release of the AI WEABS coll.mp4"></video>
                         <div class="tilt-line-text">
                             HARSHIT..
                         </div>
@@ -320,11 +365,11 @@
                             <div class="tilt-footer-column">
                                 <h3>Social</h3>
                                 <ul>
-                                    <li><a href="#">YouTube</a></li>
-                                    <li><a href="#">Instagram</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCGYDVn053f5cr8E2BhOm7Qw" target="_blank" >YouTube</a></li>
+                                    <li><a href="https://www.instagram.com/_harshit___9/" target="_blank" >Instagram</a></li>
                                     <li><a href="#">X</a></li>
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">LinkedIn</a></li>
+                                    <li><a href="https://github.com/glitchX-Harshit" target="_blank" >Github</a></li>
+                                    <li><a href="www.linkedin.com/in/harshit-chaudhary-85381835a" target="_blank" >LinkedIn</a></li>
                                 </ul>
                             </div>
 
@@ -367,18 +412,41 @@
 
     <!-- script add-on -->
 
+    <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
         integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
         integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
-    <script src="javascript/footer.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/sheryjs/dist/Shery.js"></script> <!-- Recommended -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+
+
     <script src="javascript/loader.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/about.js"></script>
+    <script src="javascript/horizontalScroll.js"></script>
+    <script src="javascript/footer.js"></script>
     <script src="javascript/ribbon.js"></script>
     <script src="javascript/testimonial.js"></script>
-    <script src="javascript/script.js"></script>
+
+    <!-- iframe glitch & zitter fixer module -->
+    <script>
+        window.addEventListener("message", (e) => {
+            if (!e.data || e.data.type !== "wheel") return;
+
+            // use native wheel scroll — no animation
+            window.scrollBy({
+                top: e.data.deltaY,
+                left: 0,
+                behavior: "auto"
+            });
+        });
+    </script>
 
 </body>
 
