@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
 body,
 html {
     background-color: black;
@@ -13,36 +15,128 @@ html {
     position: relative;
 }
 
+.banner h2 {
+    color: rgba(241, 231, 231, 0.884);
+    font-family: "Space Grotesk", sans-serif;
+    bottom: clamp(15%, 20%, 20%);
+    position: absolute;
+    letter-spacing: 1.8;
+    margin-left: clamp(5px, 2vw, 10px);
+    font-size: clamp(0.7rem, 2vw, 1em);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
 .banner .slider {
     position: absolute;
-    width: 200px;
-    height: 250px;
+    width: clamp(150px, 30vw, 200px);
+    height: clamp(180px, 35vw, 250px);
     top: 10%;
-    left: calc(50% - 100px);
+    left: 50%;
+    transform: translateX(-50%) perspective(1000px);
     transform-style: preserve-3d;
-    transform: perspective(1000px);
     animation: autoRun 17s linear infinite;
     z-index: 2;
 }
 
 @keyframes autoRun {
     from {
-        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg)
+        transform: translateX(-50%) perspective(1000px) rotateX(-16deg) rotateY(0deg);
     }
-
     to {
-        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg)
+        transform: translateX(-50%) perspective(1000px) rotateX(-16deg) rotateY(360deg);
     }
 }
 
 .banner .slider .item {
     position: absolute;
     inset: 0 0 0 0;
-    transform:
-        rotateY(calc((var(---position) - 1) * (360 / var(---quantity)) * 1deg)) translateZ(430px);
+    transform: rotateY(calc((var(---position) - 1) * (360 / var(---quantity)) * 1deg)) 
+               translateZ(clamp(250px, 50vw, 430px));
 }
 
 .banner .slider .item img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .banner h2 {
+        font-size: clamp(0.65rem, 1.8vw, 0.9rem);
+        bottom: 18%;
+    }
+    
+    .banner .slider {
+        width: clamp(140px, 32vw, 180px);
+        height: clamp(170px, 38vw, 230px);
+        top: 12%;
+    }
+    
+    .banner .slider .item {
+        transform: rotateY(calc((var(---position) - 1) * (360 / var(---quantity)) * 1deg)) 
+                   translateZ(clamp(220px, 45vw, 380px));
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .banner h2 {
+        font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+        bottom: 20%;
+        letter-spacing: 1;
+    }
+    
+    .banner .slider {
+        width: clamp(120px, 35vw, 160px);
+        height: clamp(150px, 42vw, 200px);
+        top: 15%;
+    }
+    
+    .banner .slider .item {
+        transform: rotateY(calc((var(---position) - 1) * (360 / var(---quantity)) * 1deg)) 
+                   translateZ(clamp(180px, 40vw, 300px));
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    .banner h2 {
+        font-size: clamp(0.5rem, 3vw, 0.7rem);
+        bottom: 22%;
+        margin-left: 0;
+    }
+    
+    .banner .slider {
+        width: clamp(100px, 40vw, 140px);
+        height: clamp(130px, 48vw, 180px);
+        top: 18%;
+    }
+    
+    .banner .slider .item {
+        transform: rotateY(calc((var(---position) - 1) * (360 / var(---quantity)) * 1deg)) 
+                   translateZ(clamp(150px, 35vw, 250px));
+    }
+}
+
+/* LANDSCAPE MOBILE */
+@media (max-width: 900px) and (orientation: landscape) {
+    .banner h2 {
+        bottom: 15%;
+        font-size: clamp(0.55rem, 2vw, 0.75rem);
+    }
+    
+    .banner .slider {
+        width: clamp(110px, 25vw, 150px);
+        height: clamp(140px, 30vw, 190px);
+        top: 10%;
+    }
+    
+    .banner .slider .item {
+        transform: rotateY(calc((var(---position) - 1) * (360 / var(---quantity)) * 1deg)) 
+                   translateZ(clamp(160px, 35vw, 280px));
+    }
 }
